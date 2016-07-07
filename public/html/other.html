@@ -1,0 +1,23 @@
+<div class="container-fluid">
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="nobot">Item</th>
+				<th class="nobot">Quantity</th>
+				<th class="plus-minus">+  /  -</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input class="form-control" id="item-name" ng-model="item.name"></td>
+				<td><input class="form-control" id="item-quantity" ng-model="item.quantity"></td>
+				<td><button class="btn btn-success" id="add" ng-click="addOther()">+</button>
+			</tr>
+			<tr ng-repeat="item in itemsArray | filter : { type: 'other' }">
+				<td id="td">{{item.name}}</td>
+				<td id="tdq">{{item.quantity}}</td>
+				<td><button class="btn btn-danger" id="item-remove" ng-click="delete(item._id)">-</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

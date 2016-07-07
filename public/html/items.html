@@ -1,0 +1,73 @@
+<div class="container-fluid">
+	<div class="cart-num">
+		<i class="fa fa-shopping-cart fa-2x aria-hidden="true""></i>
+		<h3 class="seperator">|</h3>
+		<div class="items-num">
+		<div class="number" ng-model="count">{{count}}</div>
+	</div>
+</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="nobot">Produce</th>
+				<th class="nobot"></th>
+				<th class="nobot"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in itemsArray | filter: { type: 'produce' }">
+				<td id="tt">{{item.name}}</td>
+				<td id="td">{{item.quantity}}</td>
+				<td><button class="btn btn-danger" id="items-remove" ng-click="delete(item._id)">-</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="nobot">Meat</th>
+				<th class="nobot"></th>
+				<th class="nobot"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in itemsArray | filter: { type: 'meat' }">
+				<td id="tt">{{item.name}}</td>
+				<td id="td">{{item.quantity}}</td>
+				<td><button class="btn btn-danger" id="items-remove" ng-click="delete(item._id)">-</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="nobot">Dairy</th>
+				<th class="nobot"></th>
+				<th class="nobot"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in itemsArray | filter: { type: 'dairy' }">
+				<td id="tt">{{item.name}}</td>
+				<td id="td">{{item.quantity}}</td>
+				<td><button class="btn btn-danger" id="items-remove" ng-click="delete(item._id)">-</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="nobot">Other</th>
+				<th class="nobot"></th>
+				<th class="nobot"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in itemsArray | filter: { type: 'other' }">
+				<td id="tt">{{item.name}}</td>
+				<td id="td">{{item.quantity}}</td>
+				<td><button class="btn btn-danger" id="items-remove" ng-click="delete(item._id)">-</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

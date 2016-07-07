@@ -11,6 +11,7 @@ angular.module('shop2')
 	}, function() {
 		$scope.upload($scope.file);
 	});
+
 	$scope.upload = function(file) {
 		if(file) {
 			file.upload = Upload.upload({
@@ -29,6 +30,7 @@ angular.module('shop2')
 			$scope.itemsArray = response;
 			$scope.item = "";
 			$scope.count = $scope.itemsArray.length.toString();
+			$scope.user.image = $scope.user.image || 'https://s-media-cache-ak0.pinimg.com/236x/8e/29/f2/8e29f2925bc2e7d5a05fa21f369ab80f.jpg'
 		});
 	};
 	refresh();

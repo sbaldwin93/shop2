@@ -16,8 +16,7 @@ angular.module('shop2')
 			file.upload = Upload.upload({
 				url: '/api/profile/editPhoto',
 				method: 'POST',
-				data: {userId: $scope.user._id},
-				file: file
+				data: {file: file, userId: $scope.user._id}
 			});
 			file.upload.then(function(response) {
 				file.result = response.data;

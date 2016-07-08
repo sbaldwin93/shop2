@@ -54,12 +54,12 @@
 		        <h4 class="modal-title" id="myModalLabel">{{user.name}}</h4>
 		      </div>
 		      <div class="modal-body">
-		      <div class="select" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'">
-		      	<button class="btn btn-default" id="change-pic">Change profile-pic</button>
-		      </div>
 		        <div class="pic-preview">
 		        	<img class="preview-pic" ng-src="{{user.image}}">
 		        </div>
+		        <div class="select" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'">
+		      	<button class="btn btn-default" id="change-pic">Change profile-pic</button>
+		      </div>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

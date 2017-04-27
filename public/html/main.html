@@ -1,0 +1,41 @@
+<!--<div class="user-profile-con" ng-if="isLoggedIn()">-->
+<div class="user-profile-con">
+	<div class="user-goal-con">
+		<form method="post" class="goal-form">
+			<textarea ng-model="item.name" class="goal-input" placeholder="Write your goal here..." name="name"></textarea>
+			<div class="item-options">
+			<button class=" btn btn-default btn-lg item-img-select" ngf-select ng-model="item.image" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="2MB">
+				<span class="glyphicon glyphicon-camera"></span>
+			</button>
+			<button class="btn btn-default btn-lg item-submit" type="submit" ng-click="addItem()">Submit</button>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="goals-wrapper">
+<div class="userGoals clearfix" ng-repeat="item in itemsArray | orderBy:'-rating'">
+	<div class="goal-poster">
+		<img class="goal-poster-pic" ng-src="{{item.userSubmitted.image}}">
+		<h6>@{{item.userSubmitted.username}}</h6>
+	</div>
+	<div class="goal-content">{{item.name}}</div>
+	<div class="goal-rating">
+		<div class="belongsToUser-wrap" ng-if="belongsToUser(item)">
+			<select ng-model="scoreSelect">
+				<option value="1">1</option>
+	            <option value="2">2</option>
+	            <option value="3">3</option>
+	            <option value="4">4</option>
+	            <option value="5">5</option>
+	            <option value="6">6</option>
+	            <option value="7">7</option>
+	            <option value="8">8</option>
+	            <option value="9">9</option>
+	            <option value="10">10</option>
+			</select>
+			<button class="btn btn-default" ng-click="submitRating(item, scoreSelect)">Like</button>
+		</div>
+		<h5>Score: {{item.rating}}</h5>
+	</div>
+</div>
+</div>

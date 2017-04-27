@@ -9,7 +9,7 @@ var performLogin = function(req, res, next, user) {
 };
 var authenticationController = {
 	login: function(req, res) {
-		res.sendFile('/html/login.html', {root: './public'});
+		res.sendFile('/html/index.html', {root: './public'});
 	},
 	processLogin: function(req, res, next) {
 		var authFunction = passport.authenticate('local', function(err, user, info) {
@@ -23,7 +23,8 @@ var authenticationController = {
 	},
 	processSignup: function(req, res, next) {
 		var user = new User({
-			name    : req.body.name,
+			firstName    : req.body.firstName,
+			lastName     : req.body.lastName,
 			username: req.body.username,
 			password: req.body.password
 		});

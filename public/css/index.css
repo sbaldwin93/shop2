@@ -3,7 +3,7 @@ body {
 	letter-spacing: 1px;
 }
 #map {
-	height: 1000px;
+	height: 100%;
 	width: 100%;
 }
 .item-options {
@@ -180,7 +180,6 @@ PROFILE
 }
 .user-info-con {
 	margin: auto;
-	height: 200px;
 	width: 320px;
 	text-align: center;
 }
@@ -541,7 +540,6 @@ END PROFILE
  ROUTE WINDOW
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .route-window {
-	padding-top: 60px;
 	margin-left: 20%;
   background-color: #fcfcfc;
 }

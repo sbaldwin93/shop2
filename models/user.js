@@ -9,8 +9,10 @@ var userSchema = mongoose.Schema({
 	city      : {type: String},
 	state     : {type: String},
 	image     : {type: String}, 
-	dream     : {type: String}, 
-	items     : {type: Schema.Types.ObjectId, ref: 'item'}
+	dream     : {type: String},
+	//location  : {type: String} 
+	lati      : {type: String},
+	long      : {type: String}
 });
 userSchema.pre('save', function(next) {
 	if(!this.isModified('password')) return next();

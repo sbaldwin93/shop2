@@ -4,6 +4,16 @@ var fs = require('fs-extra');
 var path = require('path');
 
 module.exports = {
+	getAllUsers: function(req, res) {
+		User.find({}).exec(function(err, allUsers) {
+			if(err) {
+				res.error(err);
+			}
+			else {
+				res.json(allUsers)
+			}
+		})
+	},
 	updatePhoto: function(req, res) {
 		var file = req.files.file;
 		var userId = req.body.userId;
@@ -124,6 +134,28 @@ module.exports = {
 			})
 		})
 	},
+	updateLocation: function(req, res) {
+		//var location = req.body.location;
+		var lati = req.body.lati;
+		var long = req.body.long;
+		var userId = req.body.userId;
+		User.findById(userId, function(err, userData) {
+			var user = userData;
+			user.lati = lati;
+			user.long = long;
+			//user.location = location;
+			user.save(function(err) {
+				if(err) {
+					console.log("fail");
+					res.json({status: 500});
+				}
+				else {
+					console.log("success");
+					res.json({status: 200});
+				}
+			})
+		})
+	},
 	
 	
 	postItem: function(req, res) {
@@ -144,42 +176,6 @@ module.exports = {
 			}
 		})
 	},
-	
-	/*
-	postItem: function(req, res) {
-		var item = new Item({
-			name: req.body.name,
-			timeStamp: new Date(),
-			rating: 0,
-			usersRated: 0,
-			userSubmitted : req.user._id,
-			image: req.body.image,
-			userId: req.user._id
-		});
-		var file = req.files.file;
-		console.log("user " + " fs submitting ", file);
-		var uploadDate = new Date();
-		var tempPath = file.path;
-		var targetPath = path.join(__dirname, "../itemUploads/" + uploadDate + file.name);
-		var savePath = "/itemUploads/" + uploadDate + file.name;
-		fs.rename(tempPath, targetPath, function(err) {
-			if(err) {
-				console.log(err)
-			}
-			else {
-				item.image = savePath;
-				item.save(function(err, allItems) {
-					if(err) {
-						res.error(err);
-					}
-					else {
-						res.json(allItems);
-					}
-				})
-			}
-		})	
-	},
-	*/
 	getItems: function(req, res) {
 		Item.find({userId: req.user._id}).exec(function(err, allItems) {
 			if(err) {
@@ -229,17 +225,43 @@ module.exports = {
 				});
 		})
 	}
+	
 	/*
-	sort: function(req, res) {
-		Item.find({ item: req.params.itemId }).sort({ rating: -1 }).populate('userSubmitted').then(function(data) {
-			res.send(data);
-		})
-	}
+	postItem: function(req, res) {
+		var item = new Item({
+			name: req.body.name,
+			timeStamp: new Date(),
+			rating: 0,
+			usersRated: 0,
+			userSubmitted : req.user._id,
+			image: req.body.image,
+			userId: req.user._id
+		});
+		var file = req.files.file;
+		console.log("user " + " fs submitting ", file);
+		var uploadDate = new Date();
+		var tempPath = file.path;
+		var targetPath = path.join(__dirname, "../itemUploads/" + uploadDate + file.name);
+		var savePath = "/itemUploads/" + uploadDate + file.name;
+		fs.rename(tempPath, targetPath, function(err) {
+			if(err) {
+				console.log(err)
+			}
+			else {
+				item.image = savePath;
+				item.save(function(err, allItems) {
+					if(err) {
+						res.error(err);
+					}
+					else {
+						res.json(allItems);
+					}
+				})
+			}
+		})	
+	},
 	*/
-	
-	
-	
-	
+		
 };
 
 

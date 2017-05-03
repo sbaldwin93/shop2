@@ -39,12 +39,14 @@ app.get('/api/me', function(req, res){
 app.get('/', function(req, res){
   res.sendFile('/html/index.html', {root : './public'})
 });
+app.get('/api/users/get', apiController.getAllUsers);
 app.post('/api/profile/updatePhoto', multipartMiddleware, apiController.updatePhoto);
 app.post('/api/profile/updateFirstName', apiController.updateFirstName);
 app.post('/api/profile/updateLastName', apiController.updateLastName);
 app.post('/api/profile/updateCity', apiController.updateCity);
 app.post('/api/profile/updateState', apiController.updateState);
 app.post('/api/profile/updateDream', apiController.updateDream);
+app.post('/api/profile/updateLocation', apiController.updateLocation);
 app.get('/api/items/get/:userId', apiController.getItems);
 app.get('/api/items/get', apiController.getAllItems);
 app.post('/api/items/post', apiController.postItem);

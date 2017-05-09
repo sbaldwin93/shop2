@@ -1,32 +1,59 @@
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Colors
+brown: #66594b
+teal: #aae4e5
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+
 body {
-	font-family: 'Quicksand', sans-serif;
-	letter-spacing: 1px;
+  font-family: 'Quicksand', sans-serif;
 }
+
+.btn {
+  color: #fff;
+  background-color: #66594b;
+  font-size: 20px;
+  padding: 10px 20px;
+  min-width: 120px;
+  border: none;
+  border-radius: 3px;
+  transition: all 200ms ease-in-out;
+}
+
+.btn:hover {
+  background-color: #53493f;
+  color: #fff;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
 #map {
-	height: 100%;
-	width: 100%;
+  height: 100%;
+  width: 100%;
 }
 .item-options {
-	float: right;
+  float: left;
+  margin-top: 20px;
 }
 .item-img-select, .item-submit {
-	display: inline-block;
+  display: inline-block;
 }
 #item-thumb {
-	height: 100px;
-	width: 100px;
+  height: 100px;
+  width: 100px;
 }
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 DESKTOP LANDING HEADER
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .desktop-landing {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	background-color: white;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: white;
   /*
-	background-image: url('../../images/landing-background.jpg');
-	background-repeat: no-repeat;
+  background-image: url('../../images/landing-background.jpg');
+  background-repeat: no-repeat;
   */
 }
 .info-section {
@@ -56,39 +83,39 @@ DESKTOP LANDING HEADER
   box-shadow: 0px 0px 10px white;
 }
 .desktop-landing-header {
-	width: 100%;
-	height: 60px;
+  width: 100%;
+  height: 60px;
 }
 .desktop-landing-header-options {
-	height: 100%;
-	width: 200px;
-	float: right;
-	text-align: center;
+  height: 100%;
+  width: 200px;
+  float: right;
+  text-align: center;
 }
 .desktop-landing-header-options > a {
-	display: inline-block;
-	color: rgb(155, 89, 182);
-	padding-top: 5px;
-	letter-spacing: 1px;
+  display: inline-block;
+  color: rgb(155, 89, 182);
+  padding-top: 5px;
+  letter-spacing: 1px;
 }
 .desktop-landing-header-options > a:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 .desktop-landing-brand {
-	width: 100%;
-	text-align: center;
+  width: 100%;
+  text-align: center;
 }
 .desktop-landing-brand > h1 {
-	color: white;
-	font-size: 60px;
+  color: white;
+  font-size: 60px;
 }
 .get-started-btn {
-	background-color: transparent;
-	font-size: 20px;
-	padding: 15px;
-	border: 2px solid rgb(155, 89, 182);
+  background-color: transparent;
+  font-size: 20px;
+  padding: 15px;
+  border: 2px solid rgb(155, 89, 182);
   border-radius: 3px;
-	color: rgb(155, 89, 182);
+  color: rgb(155, 89, 182);
 }
 .landing-logo {
   width: 25%;
@@ -121,28 +148,28 @@ DESKTOP LANDING HEADER
 SIDE NAV
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .navbar {
-	margin-bottom: 0px!important;
+  margin-bottom: 0px!important;
 }
 .side-nav {
-	position: fixed;
-	height: 100%;
-	width: 20%;
-	background: linear-gradient(rgba(0, 153, 204, 1.0), rgba(155, 89, 182, 0.8));
+  position: fixed;
+  height: 100%;
+  width: 20%;
+  background: #66594b;
 }
 .side-nav-profile-con {
-	height: 250px;
-	width: 100%;
-	text-align: center;
+  text-align: left;
+  padding: 45px 0 0 45px;
 }
 .side-nav-user-pic {
-	height: 60px;
-	width: 60px;
-	border: 1px solid white;
-	border-radius: 8px;
-	margin-top: 15px;
+  height: 60px;
+  width: 60px;
+  border: 1px solid white;
+  border-radius: 8px;
+  margin-top: 0;
+  margin-bottom: 20px;  
 }
 .side-nav-user-name {
-	color: white;
+  color: white;
 }
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 END SIDE NAV
@@ -156,15 +183,15 @@ END SIDE NAV
 MOBILE FOOTER
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 #mobile-footer {
-	display: none;
-	height: 30px;
+  display: none;
+  height: 30px;
 }
 .mobile-footer-grid {
-	width: 33.33%;
-	height: 100%;
-	float: left;
-	text-align: center;
-	border: 1px solid black;
+  width: 33.33%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  border: 1px solid black;
 }
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 END MOBILE FOOTER
@@ -175,111 +202,119 @@ END MOBILE FOOTER
 PROFILE
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .user-profile-con {
-	height: 100%;
-	width: 100%;
+  height: 100%;
+  width: 100%;
 }
 .user-info-con {
-	margin: auto;
-	width: 320px;
-	text-align: center;
+  margin: auto;
+  width: 320px;
+  text-align: center;
 }
 .user-profile-pic {
-	height: 100px;
-	width: 100px;
-	border: 1px solid #6666ff;
-	border-radius: 8px;
-	margin-top: 15px;
+  height: 100px;
+  width: 100px;
+  border: 1px solid #66594b;
+  border-radius: 8px;
+  margin-top: 15px;
 }
 .user-info-con > h4 {
-	color: #6666ff;
+  font-weight: bold;
 }
+
+.user-info-con > div {
+  cursor: pointer;
+}
+
+.change-info-con .form-control {
+  margin-bottom: 30px;
+}
+
 .change-info-con {
-	margin: auto;
-	width: 60%;
-	height: 100%;
+  margin: 40px auto 100px;
+  max-width: 450px;
 }
+
+.change-info-con h5 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .user-goal-con {
-	margin: auto;
-	width: 60%;
-	height: 100%;
+  margin: auto;
+  width: 60%;
+  height: 100%;
 }
 .goal-input {
-	width: 100%;
-	height: 100px;
-	padding: 5px;
+  width: 100%;
+  height: 100px;
+  padding: 5px;
 }
 .userGoals {
-	margin: auto;
-	width: 60%;
-	height: inherit;
-	padding: 10px;
-	border: 1px solid gray;
-	border-radius: 8px;
-	box-shadow: 0px 0px 5px gray;
-	margin-bottom: 5px;
+  margin: auto;
+  width: 60%;
+  height: inherit;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px gray;
+  margin-bottom: 5px;
 }
 .goal-form {
-	margin-bottom: 100px;
+  margin-bottom: 100px;
 }
 .goal-poster, .goal-content, .goal-rating {
-	display: inline-block;
-	height: 100%;
-	float: left;
+  display: inline-block;
+  height: 100%;
+  float: left;
 }
 .goal-poster, .goal-rating {
-	width: 15%;
-	text-align: center;
+  width: 15%;
+  text-align: center;
 }
 .goal-content {
-	width: 70%;
+  width: 70%;
 }
 .goal-poster-pic {
-	height: 60px;
-	width: 60px;
-	border: 1px solid #6666ff;
-	border-radius: 8px;
+  height: 60px;
+  width: 60px;
+  border: 1px solid #6666ff;
+  border-radius: 8px;
 }
 .goals-wrapper {
-	padding-bottom: 50px;
+  padding-bottom: 50px;
 }
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 END PROFILE
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
   rgb(153, 255, 255)
   rgb(128, 115, 77)
-/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
  CUSTOM FORM
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .modal-body {
   background-color: transparent;
-  padding-bottom: 50px;
+  padding: 0;
 }
 #signup-modal, .modal {
   padding-left: 0px!important;
   top: 50px!important;
 }
-.modal-content {
-  /*
-  background: linear-gradient(rgba(196, 102, 0, 1.0), rgba(155, 89, 182, 0.8));
-  */
-  
-  background: linear-gradient(rgba(0, 153, 204, 1.0), rgba(155, 89, 182, 0.8));
-  
+.modal-content {  
+  background: #fff;
   z-index: -2;
 }
 .modal-dialog {
   width: 60%!important;
 }
 #first-next {
-  width: 100%!important;
+/*  width: 100%!important;
   margin-left: 0px!important;
-  margin-right: 0px!important;
+  margin-right: 0px!important;*/
 }
 .confirmation-info {
   text-align: left;
-  color: white;
 }
 .confirmation-con {
   padding-left: 40px;
@@ -302,7 +337,6 @@ END PROFILE
   position: relative;
 }
 .fieldset-header {
-  color: white;
   font-weight: bolder;
   letter-spacing: 2px;
   margin: 0px;
@@ -358,10 +392,9 @@ END PROFILE
 .form-input {
   width: 100%;
   padding: 15px;
-  border: 2px solid white;
+  border: 2px solid #66594b;
   border-radius: 3px;
   box-sizing: border-box;
-  color: white;
   font-size: 20px;
   margin: auto;
   margin-top: 40px;
@@ -369,18 +402,14 @@ END PROFILE
   background-color: transparent;
 }
 ::-webkit-input-placeholder { /* Chrome */
-  color: white;
   opacity: 0.5;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: white;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: white;
   opacity: 1;
 }
 :-moz-placeholder { /* Firefox 4 - 18 */
-  color: white;
   opacity: 1;
 }
 .form-select {
@@ -407,18 +436,19 @@ END PROFILE
 /*buttons*/
 
 #msform .action-button {
-  width: 150px;
-  height: 50px;
-  background: transparent;
-  color: white;
-  border: 2px solid white;
+  background: #66594b;
   border-radius: 3px;
+  border: none;
   cursor: pointer;
-  padding: 10px 5px;
+  padding: 15px 30px;
   font-size: 20px;
   letter-spacing: 2px;
   margin-left: 10px;
   margin-right: 10px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
 
 
@@ -449,13 +479,13 @@ END PROFILE
 }
 .prog-wrap {
   padding-bottom: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 110px;
   margin-right: 40px;
 }
 
 #progressbar li {
   list-style-type: none;
-  color: white;
+/*  color: white;*/
   text-transform: uppercase;
   width: 14.285%;
   float: left;
@@ -465,16 +495,17 @@ END PROFILE
 #progressbar li:before {
   content: counter(step);
   counter-increment: step;
-  width: 40px;
-  line-height: 20px;
   display: block;
-  color: white;
-  background: rgba(155, 89, 182, 0.8);
-  border: 2px solid white;
-  border-radius: 3px;
   margin: 0 auto 5px auto;
   padding: 5px;
   margin-top: -6px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  line-height: 39px;
+  background: #fff;
+  color: #d2d2d2;
+  border: 1px solid #d2d2d2;  
 }
 
 
@@ -483,13 +514,12 @@ END PROFILE
 #progressbar li:after {
   content: '';
   width: 100%;
-  height: 2px;
-  background: white;
+  height: 1px;
+  background: #d2d2d2;
   position: absolute;
   left: -50%;
-  top: 9px;
+  top: 19px;
   z-index: -1;
-  /*put it behind the numbers*/
 }
 
 #progressbar li:first-child:after {
@@ -505,8 +535,9 @@ END PROFILE
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-  background: rgba(68, 213, 128, 0.8);
+  background: #66594b;
   color: white;
+  border-color: #66594b;
 }
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
  END CUSTOM FORM
@@ -534,14 +565,16 @@ END PROFILE
 .prog-txt {
   margin: 0px;
   padding: 0px;
-  color: white;
+  margin-top: 15px;
+  text-transform: none;  
 }
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
  ROUTE WINDOW
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .route-window {
-	margin-left: 20%;
+  margin-left: 20%;
   background-color: #fcfcfc;
+  padding-top: 50px;
 }
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
  END ROUTE WINDOW
@@ -551,15 +584,15 @@ END PROFILE
 MEDIA QUERIES
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 @media only screen and (max-width: 425px) {
-	.side-nav {
-		display: none!important;
-	}
-	#mobile-footer {
-		display: block!important;
-	}
-	.route-window {
-		margin: 0px!important;
-	}
+  .side-nav {
+    display: none!important;
+  }
+  #mobile-footer {
+    display: block!important;
+  }
+  .route-window {
+    margin: 0px!important;
+  }
   .prog-wrap {
     display: none;
   }
@@ -589,8 +622,13 @@ MEDIA QUERIES
 END MEDIA QUERIES
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+STEVIE'S STYLES
 
+brown: #66594b
+teal: #aae4e5
 
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 
 

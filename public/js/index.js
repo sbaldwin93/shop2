@@ -17,15 +17,6 @@ angular.module('dream').controller('mainController', [
 		});
 	};
 	getCurrentUserInfo();
-
-
-
-	
-
-
-
-
-
 	var updateInfo = function() {
 		$scope.updateFirstName = function() {
 			var request = {

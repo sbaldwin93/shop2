@@ -105,7 +105,7 @@ angular.module('dream').controller('mainController', [
 		getUserGoals();
 		getAllGoals();
 	}());
-	
+	/*
 	(function userLocation() {
 		var getUserCoordinates = function() {
 			$scope.locationsArray = [];
@@ -229,7 +229,7 @@ angular.module('dream').controller('mainController', [
 
 				    var getLocation = function() {
 					    if(navigator.geolocation) {
-							navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+							navigator.geolocation.getCurrentPosition(geoSuccess);
 					    } 
 					    else {
 					        alert("Geolocation is not supported by this browser.");
@@ -263,7 +263,7 @@ angular.module('dream').controller('mainController', [
 		}
 		getUserCoordinates();
 	}())
-	
+	*/
 }]);
 angular.module('dream')
 .config(['$routeProvider', function($routeProvider) {

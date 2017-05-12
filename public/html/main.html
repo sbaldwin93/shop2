@@ -1,26 +1,26 @@
 <!--<div class="user-profile-con" ng-if="isLoggedIn()">-->
 <div class="user-profile-con">
 	<div class="user-goal-con">
-		<form method="post" class="goal-form">
-			<textarea ng-model="item.name" class="goal-input" placeholder="Write your goal here..." name="name"></textarea>
+		<form class="goal-form" method="post">
+			<textarea ng-model="goal.content" class="goal-input" placeholder="Write your goal here..." name="content"></textarea>
 			<div class="item-options">
-			<button class=" btn btn-default btn-lg item-img-select" ngf-select ng-model="item.image" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="2MB">
+			<button class=" btn btn-default btn-lg item-img-select" ngf-select ng-model="goal.image" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="2MB">
 				<span class="glyphicon glyphicon-camera"></span>
 			</button>
-			<button class="btn btn-default btn-lg item-submit" type="submit" ng-click="addItem()">Submit</button>
+			<button class="btn btn-default btn-lg item-submit" type="submit" ng-click="postGoal(goal)">Submit</button>
 			</div>
 		</form>
 	</div>
 </div>
 <div class="goals-wrapper">
-<div class="userGoals clearfix" ng-repeat="item in itemsArray | orderBy:'-rating'">
+<div class="userGoals clearfix" ng-repeat="goal in allGoalsArray | orderBy: '-rating'">
 	<div class="goal-poster">
-		<img class="goal-poster-pic" ng-src="{{item.userSubmitted.image}}">
-		<h6>@{{item.userSubmitted.username}}</h6>
+		<img class="goal-poster-pic" ng-src="{{goal.userSubmitted.image}}">
+		<h6>@{{goal.userSubmitted.username}}</h6>
 	</div>
-	<div class="goal-content">{{item.name}}</div>
+	<div class="goal-content">{{goal.content}}</div>
 	<div class="goal-rating">
-		<div class="belongsToUser-wrap" ng-if="belongsToUser(item)">
+		<div class="belongsToUser-wrap" ng-if="belongsToUser(goal)">
 			<select ng-model="scoreSelect">
 				<option value="1">1</option>
 	            <option value="2">2</option>
@@ -33,9 +33,9 @@
 	            <option value="9">9</option>
 	            <option value="10">10</option>
 			</select>
-			<button class="btn btn-default" ng-click="submitRating(item, scoreSelect)">Like</button>
+			<button class="btn btn-default" ng-click="rateGoal(goal, scoreSelect)">Like</button>
 		</div>
-		<h5>Score: {{item.rating}}</h5>
+		<h5>Score: {{goal.rating}}</h5>
 	</div>
 </div>
 </div>

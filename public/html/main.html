@@ -21,8 +21,8 @@
 	</div>
 	<div class="goal-content">{{goal.content}}</div>
 	<div class="goal-rating">
+		<h5 class="rating">Score: {{goal.rating}}</h5>
 		<div class="belongsToUser-wrap" ng-if="belongsToUser(goal, user)">
-			<h5 class="rating">Score: {{goal.rating}}</h5>
 			<button class="btn btn-default like-btn" ng-click="rateGoal(goal, scoreSelect)" ng-if="hasRated(scoreSelect)">Like</button>
 			<select ng-model="scoreSelect" class="scoreSelect">
 				<option value="" selected data-default id="select-default">Rate</option>

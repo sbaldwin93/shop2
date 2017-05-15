@@ -7,7 +7,7 @@ teal: #aae4e5
 body {
   font-family: 'Nunito Sans', sans-serif;
 }
-.btn {
+.btn { 
   color: #fff;
   background-color: #66594b;
   font-size: 20px;
@@ -54,7 +54,7 @@ DESKTOP LANDING HEADER
 .info-section-wrap {
   width: 100%;
   padding-top: 100px;
-  background: linear-gradient(rgba(102, 89, 75, .5), rgba(170, 228, 229, .5)), url('../../images/landing-background.jpg');
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, .5), rgba(225, 225, 225, .2)), url('../../images/landing-background.jpg');
   background-repeat: no-repeat;
 }
 .info-section-top {
@@ -82,9 +82,10 @@ DESKTOP LANDING HEADER
 .info-section-grid-inner {
   height: 100%;
   width: 100%;
-  border: 3px solid white;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px black;
+  /*
+  background: linear-gradient(to bottom right, rgba(102, 89, 75, .5), rgba(170, 228, 229, .5));
+  */
+  background: linear-gradient(rgba(255, 255, 255, .5), rgba(170, 228, 229, .5));
 }
 #isgil {
   padding-right: 0px!important;

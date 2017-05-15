@@ -1,151 +1,9 @@
-(function() {
-var app = angular.module('dream', ['ngRoute', 'ngFileUpload'])
-angular.module('dream')
-.controller('mainController', [
-	'$scope', 
-	'$http', 
-	'Upload', 
-	'$timeout', function($scope, $http, Upload, $timeout) {
-	(function initialize() {
-		(function getAllUsers() {
-			$http.get('/api/users/get').then(function(response) {
-			});
-		}());
-	}());
-	(function userInfo() {
-		const getSessionUser = function() {
-			$http.get('/api/me').then(function(response) {
-				$scope.user = response.data;
-				$scope.user.image = $scope.user.image;
-			});
-		};
-		getSessionUser();
-		$scope.updateFirstName = function() {
-			const data = {
-				userId: $scope.user._id,
-				firstName: $scope.user.firstName
-			};
-			$http.post('/api/profile/updateFirstName', data).then(function(){});
-		};
-		$scope.updateLastName = function() {
-			const data = {
-				userId: $scope.user._id,
-				lastName: $scope.user.lastName
-			};
-			$http.post('/api/profile/updateLastName', data).then(function(){});
-		};
-		$scope.updateCity = function() {
-			const data = {
-				userId: $scope.user._id,
-				city: $scope.user.city
-			};
-			$http.post('/api/profile/updateCity', data).then(function(){});
-		};
-		$scope.updateState = function() {
-			const data = {
-				userId: $scope.user._id,
-				state: $scope.user.state
-			};
-			$http.post('/api/profile/updateState', data).then(function(){});
-		};
-		$scope.updateDream = function() {
-			const data = {
-				userId: $scope.user._id,
-				dream: $scope.user.dream
-			};
-			$http.post('/api/profile/updateDream', data).then(function(){});
-		};
-		$scope.uploadFiles = function(file, errFiles) {
-	        $scope.f = file;
-	        $scope.errFile = errFiles && errFiles[0];
-	        if (file) {
-	            file.upload = Upload.upload({
-	                url: '/api/profile/updatePhoto',
-	                method: 'POST',
-	                data: {file: file, userId: $scope.user._id}
-	            });
-	            file.upload.then(function (response) {
-	                $timeout(function () {
-	                    file.result = response.data;
-	                    getSessionUser();
-	                });
-	            }, function (response) {
-	                if (response.status > 0)
-	                    $scope.errorMsg = response.status + ': ' + response.data;
-	            }, function (evt) {
-	                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-	            });
-	        };  
-       	};   	
-	}());	
-	(function goals() {
-		const data = {}
-		var getUserGoals = function(id) {
-			$http.get('/api/goals/get/' + $scope.userId, data).then(function(response) {
-				$scope.userGoalsArray = response.data;
-			});
-		};
-		var getAllGoals = function() {
-			$http.get('/api/goals/get', data).then(function(response) {
-				$scope.allGoalsArray = response.data;
-			});
-		};
-		$scope.postGoal = function(goal) {
-			$scope.goal = goal;
-			$scope.allGoalsArray = [];
-			$scope.userGoalsArray = [];
-			const data = {
-				content: $scope.goal.content,
-				timeStamp: $scope.goal.timeStamp,
-				rating: $scope.goal.rating,
-				usersRated: $scope.goal.usersRated,
-				userSubmitted: $scope.user._id,
-				userId: $scope.user._id
-			}
-			$http.post('/api/goals/post', data).then(function(response) {
-				$scope.allGoalsArray.push(response);
-				$scope.userGoalsArray.push(response);
-				getAllGoals();
-				getUserGoals();
-				$scope.goal.content = "";
-			});
-		};
-		$scope.deleteGoal = function(id) {
-			$http.delete('/api/goals/delete/' + id).then(function(response) {
-				getUserGoals();
-				getAllGoals();
-			})
-		};
-		$scope.rateGoal = function(goal, scoreSelect) {
-			$scope.scoreSelect = scoreSelect;
-			$http.post('/api/rate', {
-				goalId: goal._id, x: parseInt(scoreSelect)
-			})
-			getAllGoals();	
-		};
-		$scope.hasRated = function(scoreSelect) {
-			$scope.scoreSelect = scoreSelect;
-			return scoreSelect !== undefined;
-		};
-		(function belongsToUser() {
-			$http.get('api/me').then(function(response) {
-				$scope.user = response.data;
-				$scope.belongsToUser = function(goal, user) {
-					$scope.user = user;
-					return goal.userSubmitted._id !== user._id;
-				};
-			});
-		}());
-		getUserGoals();
-		getAllGoals();
-	}());
-	$(document).ready(function() {
-	(function userLocation() {
+	function userLocation($scope, $http) {
 		var getUserCoordinates = function() {
 			$scope.locationsArray = [];
 			$http.get('/api/me').then(function(response) {
 				$scope.user = response.data;
-				function initialize() {
+				(function initialize() {
 					$http.get('/api/users/get').then(function(response) {
 				    	for(var i = 0; i < response.data.length; i++) {
 				    		var usersLat = Number(response.data[i].lati);
@@ -280,39 +138,36 @@ angular.module('dream')
 					function geoError() {
 					    alert("Geocoder failed.");
 					}
-
-				}
-				google.maps.event.addDomListener(window, 'load', initialize);
+				}())
 			})
 		}
 		getUserCoordinates();
-	}())
-	})
-}]);
+	}
+angular.module('dream').component('map', {
+  templateUrl: 'map.html',
+  controller: userLocation
+  /*
+  bindings: {
+    fieldValue: '<',
+    fieldType: '@?',
+    onUpdate: '&'
+  }
+  */
+});
 
-angular.module('dream')
-.config(['$routeProvider', function($routeProvider) {
-		$routeProvider
-		.when('/', {
-			templateUrl: '/html/main.html', 
-		})
-		.when('/main', {
-			templateUrl: '/html/main.html', 
-		})
-		.when('/profile', {
-			templateUrl: '/html/profile.html', 
-		})
-		.when('/editProfile', {
-			templateUrl: '/html/editProfile.html', 
-		})
-		.when('/main', {
-			templateUrl: '/html/main.html', 
-		})
-		.when('/map', {
-			templateUrl: '/html/map.html'
-		})
-	}]);
-}());
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

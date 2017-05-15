@@ -19,14 +19,15 @@ app.use(session({
   resave: true,
   saveUninitialized: false
 }));
-app.use(passport.initialize());
+app.use(passport.initialize()); 
 app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // FOLDER DEPENDENCIES \\
 app.use('/node_modules', express.static(__dirname + "/node_modules"));
-app.use('/userPics', express.static(__dirname + "/userPics"));
+app.use('/uploads', express.static(__dirname + "/uploads"));
+//app.use('/userPics', express.static(__dirname + "/userPics"));
 app.use('/goalPics', express.static(__dirname + "/goalPics"));
 app.use('/images', express.static(__dirname + "/images"));
 // AUTHENTICATION ROUTES \\
@@ -50,9 +51,10 @@ app.post('/api/profile/updateCity', userApiController.updateCity);
 app.post('/api/profile/updateState', userApiController.updateState);
 app.post('/api/profile/updateDream', userApiController.updateDream);
 app.post('/api/profile/updateLocation', userApiController.updateLocation);
+app.post('/api/profile/updatePhoto', multipartMiddleware, userApiController.updatePhoto);
 //app.post('/api/profile/updatePhoto', multipartMiddleware, userApiController.updatePhoto);
 // GOAL ROUTES \\
-app.post('/api/goals/post', goalApiController.postGoal);
+app.post('/api/goals/post', multipartMiddleware, goalApiController.postGoal);
 app.get('/api/goals/get/:userId', goalApiController.getUserGoals);
 app.get('/api/goals/get', goalApiController.getAllGoals);
 app.post('/api/rate', goalApiController.rate);

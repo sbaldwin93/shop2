@@ -17,23 +17,44 @@
 		<!-- ANGULAR -->
 		<script src="/node_modules/angular/angular.min.js"></script>
   		<!-- GOOGLE FONTS -->
+  		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200" rel="stylesheet">
 	</head>
 	<body ng-controller="mainController">
 
 	<!-- DESKTOP LANDING PAGE -->
 	<div class="desktop-landing">
+		<div class="landing-top">
 		<div class="desktop-landing-header">
 			<div class="desktop-landing-header-options">
 				<a href="#" data-toggle="modal" data-target="#loginModal"><h4>Login |</h4></a>
 				<a href="#" data-toggle="modal" data-target="#signupModal"><h4>Signup</h4></a>
 			</div>
 		</div>
+		</div>
 		<div class="desktop-landing-brand">
 			<div class="landing-logo"></div>
 		</div>
-		<div class="info-section">
+		<!--<div class="info-section">
 			<h1>Join our community of dream chasers and goal getters.</h1>
 			<a href="#" data-toggle="modal" data-target="#signupModal"><button class="get-started-btn" id="white">GET STARTED</button></a>
+		</div>-->
+		<div class="info-section-wrap">
+			<div class="container">
+				<div class="info-section-top">
+					<h1>Think Dream Tank is a crowd sourced and community led project that aims to create a space where people from any background can dream about their future and share a conversation about their dreams and hopes with others.</h1>
+				</div>
+			</div>
+			<div class="info-section clearfix">
+				<div class="info-section-grid-outer clearfix" id="isgil">
+					<div class="info-section-grid-inner clearfix"></div>
+				</div>
+				<div class="info-section-grid-outer clearfix">
+					<div class="info-section-grid-inner clearfix"></div>
+				</div>
+				<div class="info-section-grid-outer clearfix" id="isgir">
+					<div class="info-section-grid-inner clearfix"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- DESKTOP LANDING PAGE -->
@@ -46,8 +67,8 @@
 				  <!-- progressbar -->
 				  	<div class="prog-wrap">
 					  	<ul id="progressbar">
-					    	<li class="active"><h5 class="prog-txt">First Name</h5></li>
-					    	<li><h5 class="prog-txt">Last Name</h5></li>
+					    	<!--<li class="active"><h5 class="prog-txt">First Name</h5></li>
+					    	<li><h5 class="prog-txt">Last Name</h5></li>-->
 					    	<li><h5 class="prog-txt">Username</h5></li>
 					    	<li><h5 class="prog-txt">Password</h5></li>
 					    	<li><h5 class="prog-txt">Dream</h5></li>
@@ -56,7 +77,7 @@
 					  	</ul>
 				  	</div>
 				  	<div class="fieldset-wrap">
-				  	<fieldset>
+				  	<!--<fieldset>
 				  		<h1 class="fieldset-header">What's your first name?</h1>
 				  		<div class="form-items-con">
 					    	<input class="form-input" placeholder="First Name..." type="text" name="firstName" ng-model="firstname"/>
@@ -70,7 +91,7 @@
 					    </div>
 					    <input type="button" name="previous" class="previous action-button" value="Previous" />
 					    <input type="button" name="next" class="next action-button" value="Next" />
-				  	</fieldset>
+				  	</fieldset>-->
 				  	<fieldset>
 				  		<h1 class="fieldset-header">Pick a username.</h1>
 				  		<div class="form-items-con">

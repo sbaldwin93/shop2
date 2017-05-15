@@ -30,8 +30,8 @@
 	</div>
 	<div class="goal-content">{{goal.content}}</div>
 	<div class="goal-rating">
-		<button class="btn btn-default" ng-click="deleteGoal(goal._id)">Delete</button>
-		<h5>Score: {{goal.rating}}</h5>
+		<h5 class="rating">Score: {{goal.rating}}</h5>
+		<button class="btn btn-default delete-btn" ng-click="deleteGoal(goal._id)">Delete</button>
 	</div>
 </div>
 </div>

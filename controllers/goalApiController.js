@@ -13,6 +13,7 @@ module.exports = {
 			rating: 0,
 			usersRated: 0,
 			userSubmitted : req.user._id,
+			image: req.body.image,
 			userId: req.user._id
 		});
 		goal.save(function(err, newGoal) {
@@ -30,7 +31,7 @@ module.exports = {
 				res.error(err);
 			}
 			else {
-				res.json(userGoals)
+				res.json(userGoals);
 			}
 		}
 	)},

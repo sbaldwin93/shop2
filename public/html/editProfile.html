@@ -1,9 +1,19 @@
 <div class="user-profile-con">
 	<div class="user-info-con">
-		<img class="user-profile-pic" ng-src="{{user.image}}">
-		<div class="select" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'">
-			<h5>Change</h5>
-		</div>
+		<img class="user-profile-pic" ng-src="{{user.image}}"><br>
+		<!--<button class=" btn btn-default btn-lg" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="2MB" style="margin-top: 15px;">
+				<span class="glyphicon glyphicon-camera"></span>
+		</button>-->
+
+
+
+  	<button class="btn btn-default btn-lg"type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB" style="margin-top: 15px;">
+          <span class="glyphicon glyphicon-camera"></span>
+    </button>
+
+
+
 	</div>
 	<div class="change-info-con">
 		<form method="post">

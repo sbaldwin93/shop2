@@ -10,7 +10,6 @@ var userSchema = mongoose.Schema({
 	state     : {type: String},
 	image     : {type: String}, 
 	dream     : {type: String},
-	//location  : {type: String} 
 	lati      : {type: String},
 	long      : {type: String}
 });

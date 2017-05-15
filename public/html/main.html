@@ -4,9 +4,10 @@
 		<form class="goal-form" method="post">
 			<textarea ng-model="goal.content" class="goal-input" placeholder="Write your goal here..." name="content"></textarea>
 			<div class="item-options">
-			<button class=" btn btn-default btn-lg item-img-select" ngf-select ng-model="goal.image" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="2MB">
-				<span class="glyphicon glyphicon-camera"></span>
-			</button>
+			<button class="btn btn-default btn-lg item-img-select" type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+		          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+		          <span class="glyphicon glyphicon-camera"></span>
+		    </button>
 			<button class="btn btn-default btn-lg item-submit" type="submit" ng-click="postGoal(goal)">Submit</button>
 			</div>
 		</form>
@@ -20,8 +21,11 @@
 	</div>
 	<div class="goal-content">{{goal.content}}</div>
 	<div class="goal-rating">
-		<div class="belongsToUser-wrap" ng-if="belongsToUser(goal)">
-			<select ng-model="scoreSelect">
+		<div class="belongsToUser-wrap" ng-if="belongsToUser(goal, user)">
+			<h5 class="rating">Score: {{goal.rating}}</h5>
+			<button class="btn btn-default like-btn" ng-click="rateGoal(goal, scoreSelect)" ng-if="hasRated(scoreSelect)">Like</button>
+			<select ng-model="scoreSelect" class="scoreSelect">
+				<option value="" selected data-default id="select-default">Rate</option>
 				<option value="1">1</option>
 	            <option value="2">2</option>
 	            <option value="3">3</option>
@@ -33,9 +37,7 @@
 	            <option value="9">9</option>
 	            <option value="10">10</option>
 			</select>
-			<button class="btn btn-default" ng-click="rateGoal(goal, scoreSelect)">Like</button>
 		</div>
-		<h5>Score: {{goal.rating}}</h5>
 	</div>
 </div>
 </div>
